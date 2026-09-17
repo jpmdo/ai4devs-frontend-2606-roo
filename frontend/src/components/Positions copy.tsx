@@ -1,9 +1,7 @@
 import React from 'react';
 import { Card, Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 type Position = {
-    id: number;
     title: string;
     manager: string;
     deadline: string;
@@ -11,8 +9,9 @@ type Position = {
 };
 
 const mockPositions: Position[] = [
-    { id: 1, title: 'Senior Full-Stack Engineer', manager: 'John Doe', deadline: '2024-12-31', status: 'Abierto' },
-    { id: 2, title: 'Data Scientist', manager: 'Jane Smith', deadline: '2024-11-15', status: 'Abierto' }
+    { title: 'Senior Backend Engineer', manager: 'John Doe', deadline: '2024-12-31', status: 'Abierto' },
+    { title: 'Junior Android Engineer', manager: 'Jane Smith', deadline: '2024-11-15', status: 'Contratado' },
+    { title: 'Product Manager', manager: 'Alex Jones', deadline: '2024-07-31', status: 'Borrador' }
 ];
 
 const Positions: React.FC = () => {
@@ -58,9 +57,7 @@ const Positions: React.FC = () => {
                                     {position.status}
                                 </span>
                                 <div className="d-flex justify-content-between mt-3">
-                                    <Link to={`/positions/${position.id}/process`}>
-                                        <Button variant="primary">Ver proceso</Button>
-                                    </Link>
+                                    <Button variant="primary">Ver proceso</Button>
                                     <Button variant="secondary">Editar</Button>
                                 </div>
                             </Card.Body>
